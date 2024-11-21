@@ -21,6 +21,12 @@ let choiceA4image = document.querySelector('.choiceA4image');
     choiceA4image.style.display ="none";
  let choiceA5image = document.querySelector('.choiceA5image');
     choiceA5image.style.display ="none";
+let choiceA6image = document.querySelector('.choiceA6image');
+    choiceA6image.style.display ="none";
+let choiceA7image = document.querySelector('.choiceA7image');
+    choiceA7image.style.display ="none";
+let choiceA8image = document.querySelector('.choiceA8image');
+    choiceA8image.style.display ="none";
 
 headButton.addEventListener('click', function() {
     restartButton.style.display="none";
@@ -42,13 +48,16 @@ headButton.style.display="block";
     choiceA3image.style.display ="none";
     choiceA4image.style.display ="none";
     choiceA5image.style.display ="none";
+    choiceA6image.style.display ="none";
+    choiceA7image.style.display ="none";
+    choiceA8image.style.display ="none";
 });
 
 choiceAimage.addEventListener('dblclick', function(){
-    restartButton.style.display="block";
+    restartButton.style.display="none";
     choiceAimage.style.display ="none";
-    text.innerHTML = "You see a shining light deep in the cave and the chanting sounds grow louder as you approach you feel a sharp pain in your head everything goes dark"
-    choiceA1image.style.display ="block";
+    text.innerHTML = "You see a shining light deep in the cave and the chanting sounds grow louder you see people inside of the cave double click the screen to attack click up to try to interupt"
+    choiceA6image.style.display ="block";
 });
 
 pizza.addEventListener("mouseenter", function(){
@@ -61,7 +70,20 @@ pizza.addEventListener("mouseenter", function(){
     text.innerHTML = "You found food. You make it another day to find your dragon after the storm passes"
     choiceA2image.style.display ="block";
 });
-
+choiceA6image.addEventListener('dblclick', function(){
+    restartButton.style.display="block";
+    choiceAimage.style.display ="none";
+    choiceA6image.style.display ="none";
+    text.innerHTML = "you succeed in fighting off the people you sit next to the fire and warm up and wait out the storm and survive to find your dragon"
+    choiceA7image.style.display ="block";
+});
+choiceA4image.addEventListener('dblclick', function(){
+    restartButton.style.display="block";
+    choiceAimage.style.display ="none";
+    choiceA4image.style.display ="none";
+    text.innerHTML = "you find a sword in the grass and stab the tiger getting away safely"
+    choiceA8image.style.display ="block";
+});
 
 
 
@@ -78,11 +100,11 @@ document.addEventListener('keydown', function(event) {
     if(event.keyCode == 37) {
        // alert('Left was pressed');
        start.style.display = "none";
-       restartButton.style.display="block";
+       restartButton.style.display="none";
        exploreButton.style.display="none";
        choiceA3image.style.display ="none";
    headButton.style.display="none";
-       text.innerHTML = "you continue wandering becoming soaked in water you eventually come back to where yo started making no progress"
+       text.innerHTML = "you continue wandering becoming soaked in water you eventually come back to where you started and see a tiger click down to climb up a tree or double click to look for something to fight it off"
        choiceA4image.style.display ="block";
     }
     else if(event.keyCode == 39) {
@@ -96,5 +118,23 @@ document.addEventListener('keydown', function(event) {
         choiceA5image.style.display ="block";
 
     }
+    if(event.keyCode == 38) {
+        // alert('up was pressed');
+            restartButton.style.display="block";
+            choiceAimage.style.display ="none";
+            choiceA6image.style.display ="none";
+            text.innerHTML = "As you approach you feel a sharp pain in your head everything goes dark"
+            choiceA1image.style.display ="block";
+     }
+     else if(event.keyCode == 40) {
+        //alert('Right was pressed');
+        restartButton.style.display="block";
+        start.style.display = "none";
+        exploreButton.style.display="none";
+        choiceA3image.style.display ="none";
+    headButton.style.display="none";
+        text.innerHTML = "the tiger climbs up the tree and starts clawing at you you see a bright light as you die"
+        choiceA1image.style.display ="block";
 
+    }
 });
