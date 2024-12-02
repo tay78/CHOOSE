@@ -114,9 +114,30 @@ document.addEventListener('keydown', function(event) {
         exploreButton.style.display="none";
         choiceA3image.style.display ="none";
     headButton.style.display="none";
-        text.innerHTML = "you find supplies to make a fire you ignite the fire and see footprints on the ground they look like the paw prints of your dragon you follow them finding your dragon and escaping the island"
+        text.innerHTML = "you find supplies to make a fire you ignite the fire and see footprints on the ground they look like the paw prints of your dragon you follow them finding your dragon you can click yes to fly away on your dragon no to stay where you are and wait out the storm"
         choiceA5image.style.display ="block";
+        alert('Do you want to fly away or wait out the storm');
+        let result = confirm("Do you want to fly away or wait out the storm");
 
+if (result) {
+  // User clicked "Yes"
+  // Do something
+    restartButton.style.display="block";
+    choiceA5mage.style.display ="none";
+    choiceA4image.style.display ="none";
+    text.innerHTML = "you get on your dragon safely and fly away"
+    choiceA8image.style.display ="block";
+
+} else {
+  // User clicked "No" 
+  // Do something else
+    restartButton.style.display="block";
+    choiceAimage.style.display ="none";
+    choiceA5image.style.display ="none";
+    text.innerHTML = "your dragon can not fly through the heavy winds and fall s back to the grounf wind up back where you started"
+    choiceA8image.style.display ="block";
+
+}
     }
     if(event.keyCode == 38) {
         // alert('up was pressed');
@@ -130,6 +151,7 @@ document.addEventListener('keydown', function(event) {
         //alert('Right was pressed');
         restartButton.style.display="block";
         start.style.display = "none";
+        choiceA4image.style.display ="none";
         exploreButton.style.display="none";
         choiceA3image.style.display ="none";
     headButton.style.display="none";
