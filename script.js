@@ -2,6 +2,10 @@
 let  exploreButton = document.querySelector('.explore-button');
 let headButton = document.querySelector('.head-button');
 let restartButton = document.querySelector('.restart');
+let yesButton = document.querySelector('.yes');
+yesButton.style.display ="none";
+let noButton = document.querySelector('.no');
+noButton.style.display ="none";
 // html content elements
 let text = document.querySelector('.text');
 let pizza = document.querySelector('h2');
@@ -27,11 +31,17 @@ let choiceA7image = document.querySelector('.choiceA7image');
     choiceA7image.style.display ="none";
 let choiceA8image = document.querySelector('.choiceA8image');
     choiceA8image.style.display ="none";
+let choiceA9image = document.querySelector('.choiceA9image');
+    choiceA9image.style.display ="none";
+let choiceA10image = document.querySelector('.choiceA10image');
+    choiceA10image.style.display ="none";
 
 headButton.addEventListener('click', function() {
     restartButton.style.display="none";
     text.innerHTML = "You go inside and start feeling hungry. You hear a loud noise. Double click picture to Investigate OR stay where you are and search the page for food ";
  restartButton.style.display="none";
+ yesButton.style.display="none";
+ noButton.style.display="none";
 start.style.display = "none";
 choiceAimage.style.display ="block";
 exploreButton.style.display="none";
@@ -41,6 +51,8 @@ restartButton.addEventListener('click', function() {
 text.innerHTML = "You are a dragon trainer while flying your dragon you are caught in a storm landing on an unfamiliar island when your dragon got spooked and ran away somewhere on the island";
 start.style.display = "block";
 choiceAimage.style.display ="none";
+yesButton.style.display="none";
+noButton.style.display="none";
 exploreButton.style.display="block";
 headButton.style.display="block";
     choiceA1image.style.display ="none";
@@ -51,6 +63,8 @@ headButton.style.display="block";
     choiceA6image.style.display ="none";
     choiceA7image.style.display ="none";
     choiceA8image.style.display ="none";
+    choiceA9image.style.display ="none";
+    choiceA10image.style.display ="none";
 });
 
 choiceAimage.addEventListener('dblclick', function(){
@@ -84,9 +98,30 @@ choiceA4image.addEventListener('dblclick', function(){
     text.innerHTML = "you find a sword in the grass and stab the tiger getting away safely"
     choiceA8image.style.display ="block";
 });
+noButton.addEventListener('click', function(){
+    restartButton.style.display="block";
+    choiceA9image.style.display ="none";
+    choiceA10image.style.display ="none";
+    yesButton.style.display ="none";
+    noButton.style.display ="none";
+    choiceA5image.style.display ="none";
+    choiceA4image.style.display ="none";
+    text.innerHTML = "you get on your dragon safely and fly away"
+    choiceA9image.style.display ="block";
+});
 
+yesButton.addEventListener('click', function(){
+    restartButton.style.display="block";
+    choiceA9image.style.display ="none";
+    yesButton.style.display ="none";
+    noButton.style.display ="none";
+    choiceA10image.style.display ="none";
+choiceAimage.style.display ="none";
+choiceA5image.style.display ="none";
+text.innerHTML = "your dragon can not fly through the heavy winds and falls back to the grounf wind up back where you started"
+choiceA10image.style.display ="block";
 
-
+});
 exploreButton.addEventListener("click", function(){
     restartButton.style.display="none";
     start.style.display = "none";
@@ -109,35 +144,14 @@ document.addEventListener('keydown', function(event) {
     }
     else if(event.keyCode == 39) {
         //alert('Right was pressed');
-        restartButton.style.display="block";
         start.style.display = "none";
         exploreButton.style.display="none";
         choiceA3image.style.display ="none";
     headButton.style.display="none";
-        text.innerHTML = "you find supplies to make a fire you ignite the fire and see footprints on the ground they look like the paw prints of your dragon you follow them finding your dragon you can click yes to fly away on your dragon no to stay where you are and wait out the storm"
+        text.innerHTML = "you find supplies to make a fire you ignite the fire and see footprints on the ground they look like the paw prints of your dragon you follow them finding your dragon click yes to immediately fly away no to wait out the sorm before leaving"
+        yesButton.style.display="block";
+        noButton.style.display="block";
         choiceA5image.style.display ="block";
-        alert('Do you want to fly away or wait out the storm');
-        let result = confirm("Do you want to fly away or wait out the storm");
-
-if (result) {
-  // User clicked "Yes"
-  // Do something
-    restartButton.style.display="block";
-    choiceA5mage.style.display ="none";
-    choiceA4image.style.display ="none";
-    text.innerHTML = "you get on your dragon safely and fly away"
-    choiceA8image.style.display ="block";
-
-} else {
-  // User clicked "No" 
-  // Do something else
-    restartButton.style.display="block";
-    choiceAimage.style.display ="none";
-    choiceA5image.style.display ="none";
-    text.innerHTML = "your dragon can not fly through the heavy winds and fall s back to the grounf wind up back where you started"
-    choiceA8image.style.display ="block";
-
-}
     }
     if(event.keyCode == 38) {
         // alert('up was pressed');
