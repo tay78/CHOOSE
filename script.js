@@ -1,4 +1,5 @@
 // html button elements
+
 let  exploreButton = document.querySelector('.explore-button');
 let headButton = document.querySelector('.head-button');
 let restartButton = document.querySelector('.restart');
@@ -9,12 +10,15 @@ noButton.style.display ="none";
 // html content elements
 let text = document.querySelector('.text');
 let pizza = document.querySelector('h2');
-
+let move = false;
+let foodTime = false;
 // html images elements
 let start = document.querySelector('.startSubway');
     
 let choiceAimage = document.querySelector('.choiceAimage');
     choiceAimage.style.display ="none";
+let ball = document.querySelector('.ball');
+    ball.style.display ="none";
 let choiceA1image = document.querySelector('.choiceA1image');
     choiceA1image.style.display ="none";
 let choiceA2image = document.querySelector('.choiceA2image');
@@ -38,6 +42,7 @@ let choiceA10image = document.querySelector('.choiceA10image');
 
 headButton.addEventListener('click', function() {
     restartButton.style.display="none";
+    foodTime=true;
     text.innerHTML = "You go inside and start feeling hungry. You hear a loud noise. Double click picture to Investigate OR stay where you are and search the page for food ";
  restartButton.style.display="none";
  yesButton.style.display="none";
@@ -48,6 +53,7 @@ exploreButton.style.display="none";
 headButton.style.display="none";
 });
 restartButton.addEventListener('click', function() {
+    foodTime=false;
 text.innerHTML = "You are a dragon trainer while flying your dragon you are caught in a storm landing on an unfamiliar island when your dragon got spooked and ran away somewhere on the island";
 start.style.display = "block";
 choiceAimage.style.display ="none";
@@ -75,6 +81,7 @@ choiceAimage.addEventListener('dblclick', function(){
 });
 
 pizza.addEventListener("mouseenter", function(){
+    if(foodTime==true){
     choiceAimage.style.display ="none";
     restartButton.style.display="block";
     choiceA1image.style.display ="none";
@@ -83,7 +90,9 @@ pizza.addEventListener("mouseenter", function(){
         choiceA5image.style.display ="none";
     text.innerHTML = "You found food. You make it another day to find your dragon after the storm passes"
     choiceA2image.style.display ="block";
+    }
 });
+
 choiceA6image.addEventListener('dblclick', function(){
     restartButton.style.display="block";
     choiceAimage.style.display ="none";
@@ -91,13 +100,7 @@ choiceA6image.addEventListener('dblclick', function(){
     text.innerHTML = "you succeed in fighting off the people you sit next to the fire and warm up and wait out the storm and survive to find your dragon"
     choiceA7image.style.display ="block";
 });
-choiceA4image.addEventListener('dblclick', function(){
-    restartButton.style.display="block";
-    choiceAimage.style.display ="none";
-    choiceA4image.style.display ="none";
-    text.innerHTML = "you find a sword in the grass and stab the tiger getting away safely"
-    choiceA8image.style.display ="block";
-});
+
 noButton.addEventListener('click', function(){
     restartButton.style.display="block";
     choiceA9image.style.display ="none";
@@ -141,6 +144,8 @@ document.addEventListener('keydown', function(event) {
    headButton.style.display="none";
        text.innerHTML = "you continue wandering becoming soaked in water you eventually come back to where you started and see a tiger click down to climb up a tree or double click to look for something to fight it off"
        choiceA4image.style.display ="block";
+       ball.style.display ="block";
+
     }
     else if(event.keyCode == 39) {
         //alert('Right was pressed');
@@ -174,3 +179,49 @@ document.addEventListener('keydown', function(event) {
 
     }
 });
+
+ball.onmousedown = function(event) {
+    // (1) prepare to moving: make absolute and on top by z-index
+    ball.style.position = 'absolute';
+    ball.style.zIndex = 1000;
+   
+    // move it out of any current parents directly into body
+    // to make it positioned relative to the body
+    document.body.append(ball);
+  
+    // centers the ball at (pageX, pageY) coordinates
+    function moveAt(pageX, pageY) {
+        move=true;
+      ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+      ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
+    }
+  
+    // move our absolutely positioned ball under the pointer
+    moveAt(event.pageX, event.pageY);
+  
+    function onMouseMove(event) {
+      moveAt(event.pageX, event.pageY);
+    }
+  
+    // (2) move the ball on mousemove
+    document.addEventListener('mousemove', onMouseMove);
+  
+    // (3) drop the ball, remove unneeded handlers
+    ball.onmouseup = function() {
+      document.removeEventListener('mousemove', onMouseMove);
+      ball.onmouseup = null;
+    };
+  
+  };
+  
+    choiceA4image.addEventListener('mouseover', function(){
+        if(move==true){
+        restartButton.style.display="block";
+        choiceAimage.style.display ="none";
+        choiceA4image.style.display ="none";
+        ball.style.display="none";
+        text.innerHTML = "you find a sword in the grass and stab the tiger getting away safely"
+        choiceA8image.style.display ="block";
+    }
+    });
+    
