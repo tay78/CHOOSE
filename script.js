@@ -121,7 +121,7 @@ yesButton.addEventListener('click', function(){
     choiceA10image.style.display ="none";
 choiceAimage.style.display ="none";
 choiceA5image.style.display ="none";
-text.innerHTML = "your dragon can not fly through the heavy winds and falls back to the grounf wind up back where you started"
+text.innerHTML = "your dragon can not fly through the heavy winds and falls back to the ground and wind up back where you started"
 choiceA10image.style.display ="block";
 
 });
@@ -142,7 +142,7 @@ document.addEventListener('keydown', function(event) {
        exploreButton.style.display="none";
        choiceA3image.style.display ="none";
    headButton.style.display="none";
-       text.innerHTML = "you continue wandering becoming soaked in water you eventually come back to where you started and see a tiger click down to climb up a tree or double click to look for something to fight it off"
+       text.innerHTML = "you continue wandering becoming soaked in water you eventually come back to where you started and see a tiger click the down arrow key to climb up a tree or look for something to fight it off with and drag it to the tiger"
        choiceA4image.style.display ="block";
        ball.style.display ="block";
 
