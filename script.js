@@ -27,7 +27,7 @@ let choiceA3image = document.querySelector('.choiceA3image');
     choiceA3image.style.display ="none";
 let choiceA4image = document.querySelector('.choiceA4image');
     choiceA4image.style.display ="none";
- let choiceA5image = document.querySelector('.choiceA5image');
+let choiceA5image = document.querySelector('.choiceA5image');
     choiceA5image.style.display ="none";
 let choiceA6image = document.querySelector('.choiceA6image');
     choiceA6image.style.display ="none";
@@ -47,10 +47,10 @@ headButton.addEventListener('click', function() {
  restartButton.style.display="none";
  yesButton.style.display="none";
  noButton.style.display="none";
-start.style.display = "none";
-choiceAimage.style.display ="block";
-exploreButton.style.display="none";
-headButton.style.display="none";
+ start.style.display = "none";
+ choiceAimage.style.display ="block";
+ exploreButton.style.display="none";
+ headButton.style.display="none";
 });
 restartButton.addEventListener('click', function() {
     foodTime=false;
@@ -195,7 +195,10 @@ ball.onmousedown = function(event) {
       ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
       ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
     }
-  
+
+
+
+ 
     // move our absolutely positioned ball under the pointer
     moveAt(event.pageX, event.pageY);
   
@@ -213,6 +216,13 @@ ball.onmousedown = function(event) {
     };
   
   };
+console.log("pageX,pageY");
+  ball.addEventListener('mouseDown',function(){
+
+ 
+
+
+  });
   
     choiceA4image.addEventListener('mouseover', function(){
         if(move==true){
