@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
 
 
-body{ background-image: url("woods.jpg");
+body{ background-image: url("darkWoods.jpg");
+
     background-repeat: repeat-y;
     background-repeat: repeat-x;
     font-family: "Carrois Gothic", sans-serif;
@@ -9,17 +10,17 @@ body{ background-image: url("woods.jpg");
     font-style: normal;}
 
 .main{width:300px;margin:0 auto;
-background:#959595ff; padding:15px;}
+background:#2B8C5C; padding:15px;}
 img{width:300px;
 }
 p{
 color:#262626;
-background: #959595ff;
+background: #2B8C5C;
 padding:5px;
 font-size: .8em;}
 
 button{margin:5px;
 padding:25px;
 font-size: .8em;
-background:#fdfeee;
+background:#749C30;
 }
